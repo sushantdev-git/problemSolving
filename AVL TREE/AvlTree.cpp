@@ -5,8 +5,6 @@
 
 
 //in avl tree of height of left and right child differ by at most 1
-//we can't take max difference to be 0 because it's impossible to make a 
-//complete binary tree with even nodes.
 
 //AVL trees are balanced.
 //worst case is when right subtree has height 1 more than the left for every node.
@@ -17,7 +15,8 @@
 //worst case height of AVL is 2logn or to be needey greedy is 1.44logn
 
 //when ever height difference between left and right subtree is greater that 1 we fix it
-//we fix it with help of rotations
+//we fix it with help of rotations LL,RR,LR,RL
+//these are all four types of rotations
 
 
 
