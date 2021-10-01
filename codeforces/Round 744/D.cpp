@@ -16,12 +16,13 @@ void generateans(priority_queue<pair<int,int>> &pq){
         pair<int,int> p2 = pq.top();
         pq.pop();
 
-        ans+=p2.first;
-        for(int i=0 ; i<p2.first; i++){
+        ans++;
+        for(int i=0 ; i<min(1, p2.first); i++){
             s+=to_string(p1.second)+" "+to_string(p2.second)+"\n";
         }
 
-        pq.push({p1.first - p2.first,p1.second});
+        if(p2.first -1 > 0) pq.push({--p2.first, p2.second});
+        if(p1.first -1 > 0) pq.push({--p1.first,p1.second});
     }
     cout<<ans<<endl;
     cout<<s;
