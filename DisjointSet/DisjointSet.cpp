@@ -16,33 +16,38 @@ using namespace std;
     DSU can't be used to find cycle in directed graph.
 
     To optimize the height of the tree we can use the technique of path compression i.e
-    line no 52.
+    line no 31.
+
+    The path compression technique make the find operation time complexity O(logn)
 
 */
 
-class DisjointSet{
+class DisjointSetUnion{
     unordered_map<int,pair<int,int>> sets;
     //we will be storing element in the form of ele = {parent, height}
 
     int root(int ele){
         //this method is finding root of element. if any element has parent = -1 then it means it is root node.
         if(sets[ele].first == -1) return ele;
-        return root(sets[ele].first);
+        return sets[ele].second = root(sets[ele].first); //this is path compression
+        //as we go up the tree we will return the root and the will becom parent of all the elements encountred in path.
     }
 
     public:
     void addElement(int data){
+        if(sets.find(data) != sets.end()) return; 
         sets[data] = {-1, 1}; //{parent, height}
     }
 
-    bool find(int a){
-        return root(a);
+    int find(int a){
+        if(sets.find(a) == sets.end()) return -1; //if element is not present in sets
+        return root(a); 
     }
 
     bool union_(int a, int b){
         
-        int a_root = root(a);
-        int b_root = root(b);
+        int a_root = find(a);
+        int b_root = find(b);
 
         cout<<a<<" root "<<a_root<<endl;
         cout<<b<<" root "<<b_root<<endl;
@@ -76,7 +81,7 @@ class DisjointSet{
 
 int main(){
     
-    DisjointSet ds;
+    DisjointSetUnion ds;
 
     int options;
     while(true){
