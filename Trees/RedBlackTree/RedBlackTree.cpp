@@ -39,6 +39,16 @@ using namespace std;
             a if color is black of NUll then do suitable rotation and recolor
             b if color is Red then recolor and also check if parent's parent of newNode is
               not the root node then recolor it & recheck.
+    
+    Deletion in Red black tree.
+        1 If node to be delted is Red and it have no NULL children (it must be leaf node) then simply delete that node.
+        2 If the node to be deleted is internal node then replace it with Inorder successor and perform deletion on Inorder successor.
+        
+        DB-> In case of double black nodes
+            1 if root is DB  then remove DB, means make root black.
+            
+
+
 */
 
 enum Color{Black, Red}; //0, 1
@@ -93,34 +103,6 @@ class RedBlackTree {
             return node;
         }
 
-        Node * leftRotation(Node * node){
-
-            Node * x = node -> right ;
-            Node * y = x -> left;
-            Node * parent = node -> parent;
-
-            //rotatinggggggg!!!!
-            x -> left = node;
-            node -> right = y; 
-
-            node -> parent = x;
-            x -> parent = parent;
-
-            if(parent != NULL){
-                if(parent -> left == node) parent -> left = x;
-                else parent -> right = x;
-            }
-
-            if(this -> root == node){
-                root = x;
-            }
-
-            x -> color = Black;
-            node -> color = Red;
-
-            return x;
-        }
-
         Node * rightRotation(Node * node){
             //do it on paper else it's hard to uderstand.
             Node * x = node -> left ;
@@ -150,6 +132,35 @@ class RedBlackTree {
 
             return x;
         }
+
+        Node * leftRotation(Node * node){
+
+            Node * x = node -> right ;
+            Node * y = x -> left;
+            Node * parent = node -> parent;
+
+            //rotatinggggggg!!!!
+            x -> left = node;
+            node -> right = y; 
+
+            node -> parent = x;
+            x -> parent = parent;
+
+            if(parent != NULL){
+                if(parent -> left == node) parent -> left = x;
+                else parent -> right = x;
+            }
+
+            if(this -> root == node){
+                root = x;
+            }
+
+            x -> color = Black;
+            node -> color = Red;
+
+            return x;
+        }
+
 
         Node * insertUtil(Node* root, Node * node){
             if(root == NULL) return node;
