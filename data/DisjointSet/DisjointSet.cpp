@@ -29,7 +29,7 @@ class DisjointSetUnion{
     int root(int ele){
         //this method is finding root of element. if any element has parent = -1 then it means it is root node.
         if(sets[ele].first == -1) return ele;
-        return sets[ele].second = root(sets[ele].first); //this is path compression
+        return sets[ele].first = root(sets[ele].first); //this is path compression
         //as we go up the tree we will return the root and the will becom parent of all the elements encountred in path.
     }
 
@@ -84,6 +84,7 @@ int main(){
     DisjointSetUnion ds;
 
     int options;
+
     while(true){
         cout<<"1.Add element  2.Find  3.Union  4.PrintAll  5.Quit"<<endl;
         cout<<"Enter a choice ";

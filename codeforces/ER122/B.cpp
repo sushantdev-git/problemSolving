@@ -6,10 +6,23 @@ void print(int x){cout<<x<<endl;}
 template <class X> void print(X &x) {cout<<x<<endl;}
 
 void solve(){
-    int n;
-    cin>>n;
+    string s;
+    cin>>s;
 
-    vector<int> A;
+    int z = 0, o = 0;
+
+    int mx = 0;
+    for(auto c : s){
+        if(c == '1') o++;
+        else z++;
+
+        if(z > 0 && o > 0 && z != o){
+            mx = max(mx, min(z,o));
+        }
+
+    }
+
+    cout<<mx<<endl;
 
 
 }

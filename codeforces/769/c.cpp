@@ -5,12 +5,13 @@ void print(int x){cout<<x<<endl;}
 
 template <class X> void print(X &x) {cout<<x<<endl;}
 
+int minSteps(int a, int b, )
+
 void solve(){
-    int n;
-    cin>>n;
+    int a,b;
+    cin>>a>>b;
 
-    vector<int> A;
-
+    vector<int> A(max(a,b), -1);
 
 }
 

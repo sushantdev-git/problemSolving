@@ -9,7 +9,20 @@ void solve(){
     int n;
     cin>>n;
 
-    vector<int> A;
+    string s;
+    cin>>s;
+
+    if(n > 2){
+        print("NO");
+        return;
+    } 
+    if(n == 1) {
+        print("YES");
+        return;
+    }
+
+    if(s[0] != s[1]) print("YES");
+    else print("NO");
 
 
 }

@@ -9,7 +9,19 @@ void solve(){
     int n;
     cin>>n;
 
-    vector<int> A;
+    vector<int> A(n);
+
+    for(int i=0; i<n; i++) cin>>A[i];
+
+    int xx = A[0];
+    for(int i=1; i<n; i++) xx^=A[i];
+
+    cout<<xx<<" ";
+
+    xx = 0;
+    for(int i=1; i<n; i++) xx^=i;
+
+    cout<<xx<<endl;
 
 
 }
