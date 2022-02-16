@@ -16,10 +16,30 @@ char to_lower(char c) {
 }
 
 void solve(){
-    int n;
-    cin>>n;
+    int n, k;
+    cin>>n>>k;
 
-    vector<int> A;
+
+    string s;
+    cin>>s;
+
+    if(k < 1) cout<<1<<endl;
+    else{
+        n--;
+        int i=0;
+        bool ispa = true;
+        while(i <= n){
+            if(s[i] != s[n]){
+                ispa = false;
+                break;
+            }
+            i++;
+            n--;
+        }
+
+        if(ispa) cout<<1<<endl;
+        else cout<<2<<endl;
+    }
 
 
 }
@@ -30,7 +50,7 @@ void solve(){
 int main(){
     ios_base::sync_with_stdio(false);
     cin.tie(0);
-    int t=1;
+    int t;
     cin>>t;
     while(t--) solve();
 

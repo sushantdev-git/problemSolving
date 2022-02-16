@@ -1,4 +1,5 @@
-#include <bits/stdc++.h>
+#include <string>
+#include <vector>
 using namespace std;
 
 vector<string> split(string s, char del){
@@ -8,12 +9,13 @@ vector<string> split(string s, char del){
     string temp = "";
     vector<string> ans;
 
-    for(int i=0; i<n; i++){
+    for(int i=0; i<s.size(); i++){
+        if(s[i] == '"') continue;
         if(s[i] == del) {
             ans.push_back(temp);
             temp ="";
         }
-        else temp+=s[i];
+        else temp.push_back(s[i]);
     }
     ans.push_back(temp);
     return ans;

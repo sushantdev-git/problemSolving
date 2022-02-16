@@ -15,24 +15,39 @@ char to_lower(char c) {
     return c >= 'a' ? c : c + 32;
 }
 
-void solve(){
-    int n;
-    cin>>n;
 
-    vector<int> A;
+
+
+
+void solve(){
+    int n, l;
+    cin>>n>>l;
+
+    vector<double> A(n);
+    input_1darr(A,n);
+
+    double left = 0, right = l, mid;
+    sort(A.begin(),A.end());
+    double max_dis = 0;
+    for(int i=0; i<A.size()-1; i++){
+        max_dis = max(max_dis, A[i+1] - A[i]);
+    }
+
+    max_dis/=2;
+    int lb = A[0] - 0;
+    int up = l - A[A.size()-1];
+
+    max_dis = max(max_dis, double(lb)) ;
+    max_dis = max(max_dis, double(up)) ;
+
+    cout<<setprecision(10)<<max_dis<<endl;
 
 
 }
 
-
-
-
 int main(){
     ios_base::sync_with_stdio(false);
     cin.tie(0);
-    int t=1;
-    cin>>t;
-    while(t--) solve();
-
+    solve();
     return 0;
 }

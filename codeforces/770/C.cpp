@@ -16,10 +16,28 @@ char to_lower(char c) {
 }
 
 void solve(){
-    int n;
-    cin>>n;
+    int n,k;
+    cin>>n>>k;
 
-    vector<int> A;
+    if(n*k % 2 != 0 && k > 1) print("NO");
+    else{
+        print("YES");
+        int odd=1, even=2;
+        for(int i=0; i<n; i++){
+            for(int j=0; j<k; j++){
+                if(i%2 == 0){
+                    cout<<odd<<" ";
+                    odd+=2;
+                }
+                else{
+                    cout<<even<<" ";
+                    even+=2;
+                }
+            }
+            cout<<"\n";
+        }
+    }
+    
 
 
 }
@@ -30,7 +48,7 @@ void solve(){
 int main(){
     ios_base::sync_with_stdio(false);
     cin.tie(0);
-    int t=1;
+    int t;
     cin>>t;
     while(t--) solve();
 

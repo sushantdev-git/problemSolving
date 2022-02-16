@@ -16,10 +16,24 @@ char to_lower(char c) {
 }
 
 void solve(){
+
     int n;
     cin>>n;
+    string s;
+    cin>>s;
 
-    vector<int> A;
+    if(s.size() <3){
+        cout<<0<<endl;
+        return;
+    }
+    int c= 0;
+    for(int i=0; i<=s.size()-3; i++){
+        if(s[i] == s[i+1] && s[i+1] ==s[i+2] && s[i+2] == 'x') {
+            c++;
+        }
+    }
+
+    cout<<c<<endl;
 
 
 }
@@ -30,9 +44,7 @@ void solve(){
 int main(){
     ios_base::sync_with_stdio(false);
     cin.tie(0);
-    int t=1;
-    cin>>t;
-    while(t--) solve();
+    solve();
 
     return 0;
 }

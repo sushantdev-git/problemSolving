@@ -15,11 +15,25 @@ char to_lower(char c) {
     return c >= 'a' ? c : c + 32;
 }
 
-void solve(){
-    int n;
-    cin>>n;
 
-    vector<int> A;
+
+void solve(){
+    
+    string s;
+    cin>>s;
+    int up= 0, lo = 0;
+    for(int i=0; i<s.size(); i++){
+        if(s[i] < 'a') up++;
+        else lo++;
+    }
+
+    for(int i=0; i<s.size(); i++){
+        s[i] = up > lo ? to_upper(s[i]) : to_lower(s[i]);
+    }
+
+    print(s);
+
+
 
 
 }
@@ -30,9 +44,7 @@ void solve(){
 int main(){
     ios_base::sync_with_stdio(false);
     cin.tie(0);
-    int t=1;
-    cin>>t;
-    while(t--) solve();
+    solve();
 
     return 0;
 }

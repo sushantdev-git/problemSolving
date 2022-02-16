@@ -16,11 +16,10 @@ char to_lower(char c) {
 }
 
 void solve(){
-    int n;
-    cin>>n;
-
-    vector<int> A;
-
+    string s;
+    cin>>s;
+    s[0] = to_upper(s[0]);
+    print(s);
 
 }
 
@@ -30,9 +29,7 @@ void solve(){
 int main(){
     ios_base::sync_with_stdio(false);
     cin.tie(0);
-    int t=1;
-    cin>>t;
-    while(t--) solve();
+    solve();
 
     return 0;
 }

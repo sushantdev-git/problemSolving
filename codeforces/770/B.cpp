@@ -16,10 +16,17 @@ char to_lower(char c) {
 }
 
 void solve(){
-    int n;
-    cin>>n;
+    long long n,x,y;
+    cin>>n>>x>>y;
 
-    vector<int> A;
+    vector<int> A(n);
+    input_1darr(A, n);
+
+
+    for(int i=0; i<A.size(); i++) x^=A[i];
+
+    if((x&1) == (y&1)) print("Alice");
+    else print("Bob");
 
 
 }
@@ -30,9 +37,9 @@ void solve(){
 int main(){
     ios_base::sync_with_stdio(false);
     cin.tie(0);
-    int t=1;
+    int t;
     cin>>t;
     while(t--) solve();
 
     return 0;
-}
+}   

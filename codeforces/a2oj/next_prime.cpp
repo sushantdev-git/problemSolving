@@ -14,12 +14,28 @@ char to_upper(char c) {
 char to_lower(char c) {
     return c >= 'a' ? c : c + 32;
 }
+vector<bool> sieve(int n){
+    vector<bool> seve(n+1, true);
+    seve[0] = false, seve[1] = false;
+    for(int i=2; i <= n; i++){
+        if(seve[i]) for(int j=2*i; j <= n; j+=i) seve[j] = false;
+    }
+    return seve;
+}
 
-void solve(){
-    int n;
-    cin>>n;
+void solve(vector<bool> &seve){
+    int n, m;
+    cin>>n>>m; 
 
-    vector<int> A;
+    for(int i=n+1; i<m; i++){
+        if(seve[i]) {
+            print("NO");
+            return;
+        }
+    }
+
+    if(seve[m])print("YES");
+    else print("NO");
 
 
 }
@@ -30,9 +46,8 @@ void solve(){
 int main(){
     ios_base::sync_with_stdio(false);
     cin.tie(0);
-    int t=1;
-    cin>>t;
-    while(t--) solve();
+    vector<bool> seve = sieve(50);
+    solve(seve);
 
     return 0;
 }

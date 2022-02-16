@@ -1,4 +1,4 @@
-#include<bits/stdc++.h>
+    #include<bits/stdc++.h>
 using namespace std;
 
 template <class X> void print(X &x) {cout<<x<<endl;}
@@ -16,10 +16,17 @@ char to_lower(char c) {
 }
 
 void solve(){
-    int n;
+    long long n;
     cin>>n;
 
-    vector<int> A;
+    int c = 0;
+    while(n > 0){
+        if(n%10 == 4 || n%10 == 7) c++;
+        n/=10;
+    }
+
+    if(c == 4 || c == 7) print("YES");
+    else print("NO");
 
 
 }
@@ -30,9 +37,7 @@ void solve(){
 int main(){
     ios_base::sync_with_stdio(false);
     cin.tie(0);
-    int t=1;
-    cin>>t;
-    while(t--) solve();
+    solve();
 
     return 0;
 }
