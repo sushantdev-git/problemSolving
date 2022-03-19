@@ -21,8 +21,28 @@ void solve(){
     int n;
     cin>>n;
 
-    vector<int> A(n);
-    input_1darr(A,n);
+    deque<int> q;
+
+    for(int i=0; i<n; i++){
+        int a; cin>>a;
+        q.pb(a);
+    }
+
+    vector<int> ans(n, 0);
+
+    for(int i=n-1; i>=0; i--){
+        while(q.back() != i+1){
+            q.push_back(q.front());
+            q.pop_front();
+            ans[i]++;
+        }
+        q.pop_back();
+    }
+
+    for(int i=0; i<n; i++){
+        cout<<ans[i]<<" ";
+    }
+    cout<<endl;
 
 
 }

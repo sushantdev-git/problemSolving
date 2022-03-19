@@ -21,10 +21,33 @@ void solve(){
     int n;
     cin>>n;
 
-    vector<int> A(n);
-    input_1darr(A,n);
+    string ans;
+    bool tw=true;
+    while(n>1){
+        if(tw) {
+            ans.pb('2');
+            n-=2;
+        }
+        else {
+            ans.pb('1');
+            n-=1;
+        }
+        tw = !tw;
+        // cout<<n<<" "<<ans<<endl;
+    }
 
-
+    if(n == 1){
+        ans.pb('1');
+        int j = ans.size()-2;
+        if(j > 0 && ans[j] == ans[j+1]){
+            while(j > 0){
+                swap(ans[j], ans[j-1]);
+                j-=2;
+            }
+        }
+    }
+    // cout<<ans.size()<<endl;
+    cout<<ans<<endl;
 }
 
 
@@ -36,6 +59,5 @@ int32_t main(){
     int t=1;
     cin>>t;
     while(t--) solve();
-
     return 0;
 }

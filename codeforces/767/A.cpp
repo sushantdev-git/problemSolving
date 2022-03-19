@@ -18,11 +18,22 @@ template <class X> void input_2darr(vector<vector<X>> &arr, int n, int m){
 
 
 void solve(){
-    int n;
-    cin>>n;
+    int n,k;
+    cin>>n>>k;
 
-    vector<int> A(n);
-    input_1darr(A,n);
+    vector<pair<int,int>> arr(n);
+    for(int i=0; i<n; i++) cin>>arr[i].ff;
+    for(int i=0; i<n; i++) cin>>arr[i].ss;
+
+    sort(arr.begin(),arr.end());
+
+    for(int i=0; i<n; i++){
+        if(arr[i].ff <= k){
+            k+=arr[i].ss;
+        }
+    }
+
+    cout<<k<<endl;
 
 
 }

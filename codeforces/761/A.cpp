@@ -18,11 +18,29 @@ template <class X> void input_2darr(vector<vector<X>> &arr, int n, int m){
 
 
 void solve(){
-    int n;
-    cin>>n;
+    string s, t;
+    cin>>s>>t;
 
-    vector<int> A(n);
-    input_1darr(A,n);
+    vector<int> cnt(26,0);
+    for(auto &c: s) cnt[c-'a']++;
+
+    string ans;
+    if(t == "abc" && cnt[0]){
+        ans+= string(cnt[0],'a');
+        ans+= string(cnt[2], 'c');
+        ans+= string(cnt[1], 'b');
+
+        for(int i=3; i<26; i++){
+            ans+= string(cnt[i], 'a'+i);
+        }
+    }
+    else{
+        for(int i=0; i<26; i++){
+            ans+= string(cnt[i], 'a'+i);
+        }
+    }
+
+    cout<<ans<<endl;
 
 
 }

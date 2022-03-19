@@ -2,3 +2,5 @@
 *.json
 tempCodeRunnerFile.cpp
 *.cph
+*.ipynb
+*.txt

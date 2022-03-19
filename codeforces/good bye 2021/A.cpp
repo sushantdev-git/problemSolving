@@ -10,23 +10,13 @@ int main(){
         unordered_map<int,int> mp;
         int n,x;
         cin>>n;
-
+        int c = 0;
         while(n--){
             cin>>x;
             mp[x]++;
+            if(mp[x] == 2) mp[-x]++;
         }
-        int count =0;
-        set<int> s;
-        for(auto p: mp){
-            if(s.find(p.first) != s.end()) continue;
-            if(p.first == 0) count++;
-            else if(p.second == 1) count++;
-            else {
-                count+=2;
-                s.insert(-p.first);
-            }
-        }
-
-        cout<<count<<endl;
+        c+=mp.size();
+        cout<<c<<endl;
     }
 }

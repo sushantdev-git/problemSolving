@@ -18,12 +18,28 @@ template <class X> void input_2darr(vector<vector<X>> &arr, int n, int m){
 
 
 void solve(){
-    int n;
-    cin>>n;
+    int a,b,n;
+    cin>>a>>b>>n;
 
-    vector<int> A(n);
-    input_1darr(A,n);
 
+    int x = 1;
+    while(x--){
+        int num = a;
+        int j = 0;
+        for(j=0; j<10; j++){
+            if((num*10+j)%b==0) break;
+        }
+        if(j == 10) break;
+        else a = num*10+j;
+    }
+
+
+    if(x == -1) {
+        string ans = to_string(a);
+        ans+=string(n-1,'0');
+        print(ans);
+    }
+    else print(-1);
 
 }
 
@@ -34,7 +50,7 @@ int32_t main(){
     ios_base::sync_with_stdio(false);
     cin.tie(0);
     int t=1;
-    cin>>t;
+    // cin>>t;
     while(t--) solve();
 
     return 0;

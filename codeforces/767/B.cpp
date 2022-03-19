@@ -18,11 +18,27 @@ template <class X> void input_2darr(vector<vector<X>> &arr, int n, int m){
 
 
 void solve(){
-    int n;
-    cin>>n;
+    int l,r,k;
+    cin>>l>>r>>k;
 
-    vector<int> A(n);
-    input_1darr(A,n);
+    int odd;
+    if(l == r && l == 1) {
+        print("NO");
+        return;
+    }
+    else if(l == r && l > 1) {
+        print("YES");
+        return;
+    }
+
+    if((r-l+1)%2 == 0) odd = (r-l+1)/2;
+    else{
+        if(l%2 == 0) odd = (r-l+1)/2;
+        else odd = (r-l+1)/2+1;
+    }
+
+    if(odd <= k) print("YES");
+    else print("NO");
 
 
 }

@@ -16,13 +16,35 @@ template <class X> void input_2darr(vector<vector<X>> &arr, int n, int m){
     for(int i=0; i<n; i++) {for(int j=0; j<m; j++) cin>>arr[i][j];}
 }
 
-
+bool placeExam(int exams, int k, int lastdate){
+    int currdate = 1;
+    while(exams--){
+        currdate+=k;
+        currdate++;
+        if(currdate > lastdate) break;
+    }
+    // cout<<currdate<<endl;
+    return currdate <= lastdate;
+}
 void solve(){
-    int n;
-    cin>>n;
+    int n,d;
+    cin>>n>>d;
 
-    vector<int> A(n);
-    input_1darr(A,n);
+    vector<int> arr(n);
+    for(int i=0; i<n; i++) cin>>arr[i];
+    int exams = n;
+
+    int l=0, r=d, mid;
+
+    while(l <= r){
+        mid = l + (r - l)/2;
+        if(placeExam(exams, mid, d)){
+            l = mid+1;
+        }
+        else r = mid-1;
+    }
+
+    cout<<r<<endl;
 
 
 }

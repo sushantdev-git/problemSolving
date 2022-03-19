@@ -21,8 +21,16 @@ void solve(){
     int n;
     cin>>n;
 
-    vector<int> A(n);
-    input_1darr(A,n);
+    vector<pair<int,int>> arr;
+    for(int i=0; i<n; i++){
+        int a,b;
+        cin>>a>>b;
+        arr.push_back({a,b});
+    }
+
+    for(auto &[x,y]: arr){
+        cout<<x<<" "<<y<<endl;
+    }
 
 
 }
@@ -34,7 +42,7 @@ int32_t main(){
     ios_base::sync_with_stdio(false);
     cin.tie(0);
     int t=1;
-    cin>>t;
+    // cin>>t;
     while(t--) solve();
 
     return 0;

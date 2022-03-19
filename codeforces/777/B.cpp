@@ -18,13 +18,32 @@ template <class X> void input_2darr(vector<vector<X>> &arr, int n, int m){
 
 
 void solve(){
-    int n;
-    cin>>n;
+    int n,m;
+    cin>>n>>m;
 
-    vector<int> A(n);
-    input_1darr(A,n);
+    vector<vector<char>> arr(n, vector<char>(m));
+    for(int i=0; i<n; i++){
+        for(int j=0; j<m; j++){
+            cin>>arr[i][j];
+        }
+    }
 
+    for(int i=1; i<n; i++){
+        for(int j=1; j<m; j++){
+            int c = 0;
+            if(arr[i-1][j-1] == '1') c++; 
+            if(arr[i-1][j] == '1') c++;
+            if(arr[i][j-1] == '1') c++;
+            if(arr[i][j] == '1' ) c++;
 
+            if(c == 3){
+                print("NO");
+                return;
+            }
+        }
+    }
+
+    print("YES");
 }
 
 

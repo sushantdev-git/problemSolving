@@ -4,8 +4,8 @@ using namespace std;
 //diretives
 #define pb push_back
 #define int long long
-#define ss second
-#define ff first
+#define S second
+#define F first
 
 template <class X> void print(X &x) {cout<<x<<"\n";}
 void print(int i) {cout<<i<<endl;}
@@ -18,11 +18,21 @@ template <class X> void input_2darr(vector<vector<X>> &arr, int n, int m){
 
 
 void solve(){
-    int n;
-    cin>>n;
+    string s;
+    cin>>s;
 
-    vector<int> A(n);
-    input_1darr(A,n);
+    char c;
+    cin>>c;
+
+    for(int i=0; i<s.size(); i++){
+        // cout<<s[i]<<" "<<i<<" "<<s.size()-1-i<<endl;
+        if(s[i] == c && i%2 == 0 && (s.size()-1-i)%2 == 0){
+            print("YES");
+            return;
+        }
+    }
+
+    print("NO");
 
 
 }

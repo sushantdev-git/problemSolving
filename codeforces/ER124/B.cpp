@@ -21,8 +21,16 @@ void solve(){
     int n;
     cin>>n;
 
-    vector<int> A(n);
-    input_1darr(A,n);
+    if(n >= 20) cout<<"NO"<<endl;
+    else{
+        print("YES");
+        int no = 1;
+        for(int i=1; i<=n; i++){
+            cout<<no<<" ";
+            no*=3;
+        }
+        cout<<endl;
+    }
 
 
 }

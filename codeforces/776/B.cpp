@@ -4,8 +4,8 @@ using namespace std;
 //diretives
 #define pb push_back
 #define int long long
-#define ss second
-#define ff first
+#define S second
+#define F first
 
 template <class X> void print(X &x) {cout<<x<<"\n";}
 void print(int i) {cout<<i<<endl;}
@@ -16,14 +16,21 @@ template <class X> void input_2darr(vector<vector<X>> &arr, int n, int m){
     for(int i=0; i<n; i++) {for(int j=0; j<m; j++) cin>>arr[i][j];}
 }
 
+int fx(int x, int a){
+    return floor(x/a)+x%a;
+}
 
 void solve(){
-    int n;
-    cin>>n;
+    int l,r,a, ans;
+    cin>>l>>r>>a;
 
-    vector<int> A(n);
-    input_1darr(A,n);
+    int la = r/a;
+    la*=a;
 
+    ans = fx(r, a);
+    if(l < la && la <= r) ans = max(ans, fx(la-1, a));
+
+    cout<<ans<<endl;
 
 }
 

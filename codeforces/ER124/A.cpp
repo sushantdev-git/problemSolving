@@ -21,9 +21,7 @@ void solve(){
     int n;
     cin>>n;
 
-    vector<int> A(n);
-    input_1darr(A,n);
-
+    cout<<((1<<n) - 1)<<endl;
 
 }
 
