@@ -8,10 +8,23 @@ using namespace std;
 #define ff first
 
 void solve(){
-    int n;
-    cin>>n;
+    string s;
+    cin>>s;
 
+    if(s.size() % 2 != 0){
+        cout<<"NO"<<endl;
+    }
+    else{
+        int mid = s.size()/2;
+        for(int i=0; i<mid; i++){
+            if(s[i] != s[i+mid]){
+                cout<<"NO"<<endl;
+                return;
+            }
+        }
 
+        cout<<"YES"<<endl;
+    }
 }
 
 
