@@ -22,27 +22,35 @@ void solve(){
     int n;
     cin>>n;
 
-    priority_queue<int, vector<int>, greater<int>> pq;
+    multiset<int> q;
+    multiset<int> pq;
+
+    int sum = 0;
     for(int i=0; i<n; i++){
         int x; cin>>x;
-        pq.push(x);
+        q.insert(x);
+        sum += x;
     }
 
-    while(pq.size() > 1 && n > 1){
-        int a = pq.top(); pq.pop();
-        int b = pq.top(); pq.pop();
+    pq.insert(sum);
 
-        if(abs(a-b) <= 1) pq.push(a+b);
-        else {
-            print("NO");
-            return;
+    int size = 1;
+    while(pq.size()){
+        int x = *--pq.end(); //last element
+        if(x < *--q.end()) break;
+
+        pq.erase(--pq.end());
+
+        if(q.find(x) != q.end()){
+            q.erase(q.find(x));
         }
-
-        n--;
+        else{
+            pq.insert(x/2);
+            pq.insert((x+1)/2);
+        }
     }
 
-    if(pq.size() && n == 1) print("YES");
-    else print("NO");
+    cout<<(q.empty() ? "YES" : "NO")<<endl;
 
 }
 
