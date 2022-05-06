@@ -7,50 +7,35 @@ using namespace std;
 #define ss second
 #define ff first
 
-template <class X> void print(X &x) {cout<<x<<"\n";}
-void print(int i) {cout<<i<<endl;}
-template <class X> void input_1darr(vector<X> &arr, int n){
-    for(int i=0; i<n; i++) cin>>arr[i];
-}
-template <class X> void input_2darr(vector<vector<X>> &arr, int n, int m){
-    for(int i=0; i<n; i++) {for(int j=0; j<m; j++) cin>>arr[i][j];}
-}
+#define size 32769
 
 
-vector<int> dp(32769, -1);
 int mod = 32768;
-
-int minStep(int n){
-
-    if(n <= 0) return 0;
-
-    if(dp[n] != -1) return dp[n];
-
-    int ans = INT_MAX;
-    int a = (n+1)%mod;
-    int b = (2*n)%mod;
-    
-    int x = 1 + minStep(a);
-    dp[n] = x;
-    int y = 1 + minStep(b);
-
-    return dp[n] = min(x,y);
-}
 
 
 void solve(vector<int> &dp){
     int n;
     cin>>n;
 
-    vector<int> A(n);
-    input_1darr(A,n);
+    vector<int> arr(n);
+    for(int i=0; i<n; i++) cin>>arr[i];
 
-    for(auto &x: A){
-        cout<<minStep(x)<<" ";
+
+    for(auto no: arr){
+
+        int ans = 20;
+
+        for(int j=0; j<=15; j++){
+            for(int k=0; k<=15; k++){
+                if(((j + no) * (1 << k)) % mod  == 0){
+                    ans = min(ans, j+k);
+                }
+            }
+        }
+
+        cout<<ans<<" ";
     }
     cout<<endl;
-
-
 }
 
 
@@ -61,6 +46,7 @@ int32_t main(){
     cin.tie(0);
     int t=1;
     // cin>>t;
+    vector<int> dp(size, -1);
     while(t--) solve(dp);
 
     return 0;
