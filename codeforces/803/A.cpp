@@ -11,7 +11,9 @@ void solve(){
     int n;
     cin>>n;
 
-
+    vector<int> arr(n);
+    for(auto &i: arr) cin>>i;
+    cout<<arr[0]<<endl;
 }
 
 
