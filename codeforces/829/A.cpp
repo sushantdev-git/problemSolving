@@ -15,7 +15,17 @@ using namespace std;
 typedef vector<int> vi;
 
 void solve(){
-    
+    int n; cin>>n;
+    string s; cin>>s;
+
+    int q = 0;
+
+    for(auto &ch: s){
+        if(ch == 'Q') q--;
+        if(q < 0 && ch == 'A') q++;
+    }
+
+    cout<<(q >= 0 ? "Yes" : "No")<<endl;
 }
 
 

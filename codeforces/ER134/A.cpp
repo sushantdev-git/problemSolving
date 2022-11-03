@@ -6,16 +6,23 @@ using namespace std;
 #define int long long
 #define ss second
 #define ff first
-#define all(arr) arr.begin(), arr.end()
-#define rall(arr) arr.rbegin(), arr.rend()
-
-#define INP(v, n) for(int i=0; i<n; i++) cin>>v[i];
-#define OUT(v, n) for(int i=0; i<n; i++) cout<<v[i]<<" "; cout<<endl;
-
-typedef vector<int> vi;
 
 void solve(){
-    
+    // int n;
+    // cin>>n;
+
+
+    set<char> s;
+    for(int i=0; i<4; i++){
+        char ch; cin>>ch;
+        s.insert(ch);
+    }
+
+    if(s.size() == 1) cout<<0<<endl;
+    else if(s.size() == 2) cout<<1<<endl;
+    else if(s.size() == 3) cout<<2<<endl;
+    else cout<<3<<endl;
+
 }
 
 

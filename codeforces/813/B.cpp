@@ -6,8 +6,6 @@ using namespace std;
 #define int long long
 #define ss second
 #define ff first
-#define all(arr) arr.begin(), arr.end()
-#define rall(arr) arr.rbegin(), arr.rend()
 
 #define INP(v, n) for(int i=0; i<n; i++) cin>>v[i];
 #define OUT(v, n) for(int i=0; i<n; i++) cout<<v[i]<<" "; cout<<endl;
@@ -15,7 +13,26 @@ using namespace std;
 typedef vector<int> vi;
 
 void solve(){
-    
+    int n; cin>>n;
+    string s; cin>>s;
+
+    bool flip = false;
+    int cnt = 0;
+    for(int i=0; i<n-1; i++){
+        int v1 = s[i] - '0', v2 = s[i+1] - '0';
+
+        if(!flip && v1 > v2){
+            cnt++;
+            flip = !flip;
+        }
+
+        if(flip && v2 > v1){
+            cnt++;
+            flip = !flip;
+        }
+    }
+
+    cout<<cnt<<endl;
 }
 
 

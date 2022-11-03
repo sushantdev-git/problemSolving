@@ -6,8 +6,6 @@ using namespace std;
 #define int long long
 #define ss second
 #define ff first
-#define all(arr) arr.begin(), arr.end()
-#define rall(arr) arr.rbegin(), arr.rend()
 
 #define INP(v, n) for(int i=0; i<n; i++) cin>>v[i];
 #define OUT(v, n) for(int i=0; i<n; i++) cout<<v[i]<<" "; cout<<endl;
@@ -15,7 +13,18 @@ using namespace std;
 typedef vector<int> vi;
 
 void solve(){
-    
+    int l, r;
+    cin>>l>>r;
+ 
+    int st=sqrt(l);
+    int e=sqrt(r);
+    int count=3*(e-(st+1));
+    if(l%st==0)
+        count++;
+    int sqr=(st+1)*(st+1);
+    count+=((sqr-1)/st-l/st)+1;
+    count+=(r/e)-e;
+    cout<<count<<endl;
 }
 
 

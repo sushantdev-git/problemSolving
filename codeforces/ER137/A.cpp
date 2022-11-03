@@ -6,8 +6,6 @@ using namespace std;
 #define int long long
 #define ss second
 #define ff first
-#define all(arr) arr.begin(), arr.end()
-#define rall(arr) arr.rbegin(), arr.rend()
 
 #define INP(v, n) for(int i=0; i<n; i++) cin>>v[i];
 #define OUT(v, n) for(int i=0; i<n; i++) cout<<v[i]<<" "; cout<<endl;
@@ -15,6 +13,18 @@ using namespace std;
 typedef vector<int> vi;
 
 void solve(){
+
+    int n; cin>>n;
+
+    set<int> s;
+    for(int i=0; i<n; i++){
+        int x; cin>>x;
+        s.insert(x);
+    }
+
+    int rem = 10 - s.size();
+
+    cout<<rem*3*(rem-1)<<endl;
     
 }
 

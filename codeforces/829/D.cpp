@@ -15,6 +15,17 @@ using namespace std;
 typedef vector<int> vi;
 
 void solve(){
+    int n, x; cin>>n>>x;
+
+    vi arr(n);
+    INP(arr, n);
+
+    if(x == 1){
+        cout<<"YES"<<endl;
+        return;
+    }
+
+    int ones = 0;
     
 }
 

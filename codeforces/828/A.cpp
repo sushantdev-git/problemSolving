@@ -6,8 +6,6 @@ using namespace std;
 #define int long long
 #define ss second
 #define ff first
-#define all(arr) arr.begin(), arr.end()
-#define rall(arr) arr.rbegin(), arr.rend()
 
 #define INP(v, n) for(int i=0; i<n; i++) cin>>v[i];
 #define OUT(v, n) for(int i=0; i<n; i++) cout<<v[i]<<" "; cout<<endl;
@@ -15,7 +13,25 @@ using namespace std;
 typedef vector<int> vi;
 
 void solve(){
-    
+    int n; cin>>n;
+
+    vi arr(n);
+    INP(arr, n);
+    string s; cin>>s;
+
+    unordered_map<int,char> mp;
+
+    for(int i=0; i<n; i++){
+        if(mp.find(arr[i])==mp.end()){
+            mp[arr[i]] = s[i];
+        }
+        else if(mp[arr[i]] != s[i]){
+            cout<<"NO"<<endl;
+            return;
+        }
+    }
+
+    cout<<"YES"<<endl;
 }
 
 

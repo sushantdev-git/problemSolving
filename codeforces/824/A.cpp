@@ -6,18 +6,25 @@ using namespace std;
 #define int long long
 #define ss second
 #define ff first
-#define all(arr) arr.begin(), arr.end()
-#define rall(arr) arr.rbegin(), arr.rend()
-
-#define INP(v, n) for(int i=0; i<n; i++) cin>>v[i];
-#define OUT(v, n) for(int i=0; i<n; i++) cout<<v[i]<<" "; cout<<endl;
-
-typedef vector<int> vi;
 
 void solve(){
-    
+    int n;
+    cin>>n;
+ 
+    n-=4;
+    int x;
+    if(n%3==0)
+        x=n/3-1;
+    else{
+        int l1=n/3;
+        int l2=2*(n/3);
+        if(n%3==2)
+            l1++; l2++;
+        x=min(abs(l1-1), abs(l2-1));
+    }
+    cout<<x<<endl;
 }
-
+ 
 
 
 
